@@ -1,22 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Books from './pages/Books';
+import Header from './components/Header';
+import Users from './pages/Users';
+import Orders from './pages/Orders';
 
-const App: React.FC = () => {
-  const [message, setMessage] = useState<string>('');
-
-  useEffect(() => {
-    fetch('/api')
-      .then(response => response.text())
-      .then(data => setMessage(data))
-      .catch(error => console.error('Error:', error));
-  }, []);
-
+function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>{message || 'Loading...'}</h1>
-      </header>
-    </div>
+    <Router>
+      <Header/>
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/books" element={<Books/>} />
+        <Route path="/users" element={<Users/>} />
+        <Route path="/orders" element={<Orders/>} />
+      </Routes>
+    </Router>
   );
 }
 
