@@ -4,6 +4,8 @@ import Books from './pages/Books';
 import Header from './components/Header';
 import Users from './pages/Users';
 import Orders from './pages/Orders';
+import Register from './pages/Register';
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <Route path="/books" element={<Books/>} />
         <Route path="/users" element={<Users/>} />
         <Route path="/orders" element={<Orders/>} />
+        <Route path="/register" element={<Register/>} />
+        <Route path="/login" element={<Login/>} />
       </Routes>
     </Router>
   );
